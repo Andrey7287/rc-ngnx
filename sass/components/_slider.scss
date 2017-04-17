@@ -1,8 +1,7 @@
 
 .slider-wrapp {
 	position: relative;
-	max-width: 1200px;
-	margin: 0 auto;
+	margin: 0 -15px;
 }
 /**** SLIDER ****/
 .slider {
@@ -10,27 +9,7 @@
 		position: relative;
 	}
 }
-/**** ARROWS ****/
-.slider-arrow {
-	position: absolute;
-	text-indent: -99999px;
-	padding: 0;
-	border: 0;
-	line-height: 0;
-	top: calc(50% - 26px);
-	background-color: transparent;
-	&:hover {
-		cursor: pointer;
-	}
-	&.left {
-		left: 13px;
-		@include sprite($arrow_left);
-	}
-	&.right {
-		right: 13px;
-		@include sprite($arrow_right);
-	}
-}
+
 /**** DOTS ****/
 .slider-dots {
 	position: absolute;

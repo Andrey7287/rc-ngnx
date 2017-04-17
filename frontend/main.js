@@ -32,8 +32,7 @@ $('.c-hamburger').on('click', function(){
 ************************/
 
 $('.slider').slick({
-	prevArrow: $('.slider-arrow.left'),
-	nextArrow: $('.slider-arrow.right'),
+	arrows: false,
 	dots: true,
 	appendDots: $('.slider-dots')
 });

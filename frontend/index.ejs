@@ -12,7 +12,10 @@
 <body>
 
 	<header class="header">
-		<div class="container">
+		<div class="container header__container">
+			<a href="/" class="site-logo">
+				<img src="./images/logo.png" alt="ingenix logo" />
+			</a>
 			<nav class="site-nav-outer">
 				<button class="c-hamburger c-hamburger--htx">
 					<span>toggle menu</span>
@@ -21,10 +24,9 @@
 				<%
 					var menuItems = [
 						{'О&nbsp;компании': './inner1.html'},
-						{'Услуги': './inner1.html'},
-						{'Сотрудничество': './inner1.html'},
-						{'Карьера': './inner1.html'},
-						{'Пресс-центр': './inner1.html' },
+						{'Услуги и продукты': './inner1.html'},
+						{'Новости и пресса': './inner1.html'},
+						{'Медиатека': './inner1.html'},
 						{'Контакты': './inner2.html' }
 					]
 				%>
@@ -35,42 +37,203 @@
 								<li class="site-nav__item<% if(!idx){ %> site-nav__item_act<%}%>">
 									<a href="<%=item[key] %>">
 										<%=key %>
+
+										<svg class='corner'   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+											 xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none" >
+											<% if( idx % 2 === 0 ) { %>
+											<polygon  class="corner__outer" points="0,0 0,100 100,8 100,0"/>
+											<polygon class="corner__inner" points="0,0 0,60 100,0"/>
+											<% } else { %>
+											<polygon  class="corner__outer" points="0,0 0,8 100,100 100,0"/>
+											<polygon class="corner__inner" points="0,0 100,0 100,60"/>
+											<% } %>
+										</svg>
 									</a>
 								</li>
 							<%	}
 						});	%>
 				</ul>
 			</nav>
+			<div class="site-lang-toggle">
+				<a href="/">home</a>
+				<button class="rus">rus</button>
+				<button class="eng">eng</button>
+			</div>
+
+			<div class="header__inner">
+				<div class="site-slogan">
+					Комплексный консалтинг<br />для нефтегазовой отрасли
+				</div>
+				<div class="site-search">
+					<div class="site-search__query">
+						Поиск:  <span>по сайту</span>  <a href="f">по нефтегазовым ресурсам</a>
+					</div>
+					<div class="search">
+						<form action="/search/" method="get">
+							<input class="search__input" type="text" name="q" placeholder="" />
+							<input class="search__submit" type="submit" value="найти" />
+						</form>
+					</div>
+				</div>
+				<div class="site-contacts">
+					<a class="site-contacts__phone" href="tel:+74957830009">+7(495) 783 00 09</a>
+					<div class="site-contacts__social">
+						<a href="" class="soc soc_fb">facebook</a>
+						<a href="" class="soc soc_tw">twitter</a>
+						<a href="" class="soc soc_in">linkedin</a>
+					</div>
+				</div>
+			</div>
+
 		</div>
+
 	</header>
 	<!-- HEADER end-->
 
 	<div class="content">
-		<div class="slider-wrapp">
-			<div class="slider">
-				<div class="slider__item">
-					<img src="images/slider1.jpg" alt="">
+
+		<!-- SLIDER-->
+		<div class="container">
+			<div class="slider-wrapp">
+				<div class="slider">
+					<% for (var i = 1; i < 3; i++){%>
+					<div class="slider__item">
+						<img class="slider__img" src="images/slider<%=i %>.jpg" alt="" />
+						<div class="slider__txt">
+							<div class="title">
+								ТЭО
+							</div>
+							<div class="txt">
+								нефтегазового проекта на любой стадии
+							</div>
+						</div>
+					</div>
+					<% } %>
 				</div>
-				<div class="slider__item">
-					<img src="images/slider2.jpg" alt="">
+				<!--button class="slider-arrow left">previos</button>
+				<button class="slider-arrow right">next</button-->
+				<div class="slider-dots"></div>
+			</div>
+		</div>
+
+		<!-- CONTENT-->
+		<div class="main">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<!-- News data -->
+						<%
+							var newsItems = [
+								{'Мероприятия': 'Поздравляем с наступающим Новым Годом и&nbsp;Рождеством!'},
+								{'Публикации': 'Вышел в свет ежегодный корпоративный информационный бюллетень Ingenix Digest 2016'},
+								{'События': 'Победа в конкурсе работ молодых профессионалов в рамках международного молодежного конгресса «Нефтегазовые горизонты»'},
+								{'Публикации': 'Итоги технологического семинара Ingenix Group и Яндекс.Терры по вопросам обработки и&nbsp;интерпретации сейсмических данных «На&nbsp;гребне сейсмической волны»'}
+							]
+						%>
+						<div class="news">
+							<h3>Новости</h3>
+							<%	newsItems.forEach((item, idx)=>{
+								for (key in item) { %>
+									<a href="we" class="news__item">
+										<div class="news__header">
+											<div class="news__date">27.12.2016</div>
+											<div class="news__tag"><%=key %></div>
+										</div>
+										<div class="news__link"><%=item[key] %></div>
+									</a>
+								<%	}
+							});	%>
+							<div class="news__all">
+								<a href="w">Все новости</a>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<a href="" class="handbook">
+							<h3><a href="a">Справочник аналитика</a></h3>
+							<div class="handbook__inner with-corner">
+								<img src="../images/handbook.jpg" alt="" />
+								<div class="handbook__txt">
+									Небольшой текст о справочнике аналитика, что полезного там есть, для чего он, какие показатели представлены
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="col">
+						<a href="" class="grafic">
+							<h3><a href="w">Инфографика</a></h3>
+							<div class="grafic__inner with-corner">
+								<img class="grafic__img" src="../images/grafic.jpg" alt="" />
+								<div class="grafic__txt">
+									Небольшой текст о справочнике аналитика, что полезного там есть, для чего он, какие показатели представлены
+								</div>
+							</div>
+							<div class="news">
+								<div class="news__header">
+									<div class="news__date">19.01.2017</div>
+								</div>
+								<div class="news__link">Нефтегазовый апстрим в&nbsp;2010-2015 гг.: Россия vs. мир</div>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
-			<button class="slider-arrow left">previos</button>
-			<button class="slider-arrow right">next</button>
-			<div class="slider-dots"></div>
 		</div>
+
 	</div>
 
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="copyright">© А.Аспект. Агентство стратегического развития бизнеса. 2017</div>
+					<h4>О компании</h4>
+					<ul class="footer__nav">
+						<li><a href="">О компании</a></li>
+						<li><a href="">Команда</a></li>
+						<li><a href="">Опыт</a></li>
+						<li><a href="">Отзывы и сертификаты</a></li>
+						<li><a href="">Мероприятия</a></li>
+					</ul>
 				</div>
 				<div class="col">
-					<div class="infodisign">
-						<a href="http://infodesign.ru/">© Создание сайта <span class="cut">и дизайн</span> «ИнфоДизайн» 2017</a>
+					<h4>Услуги и продукты</h4>
+					<ul class="footer__nav">
+						<li><a href="">Технико-экономическая оценка</a></li>
+						<li><a href="">Геолого-технологические решения а</a></li>
+						<li><a href="">Программное обеспечение для оценки затрат</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>Новости и пресса</h4>
+					<ul class="footer__nav">
+						<li><a href="">Последние новости</a></li>
+						<li><a href="">Пресс-релизы</a></li>
+						<li><a href="">Публикации</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>Медиатека</h4>
+					<ul class="footer__nav">
+						<li><a href="">Брошюры</a></li>
+						<li><a href="">Презентации</a></li>
+						<li><a href="">Видео</a></li>
+						<li><a href="">Инфографика</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h4>Контакты</h4>
+					<div class="footer__contacts">
+						<a href="tel:+74957830009">+7(495) 783 00 09</a>, <a href="mailto:info@ingenix-group.ru">info@ingenix-group.ru</a>
+						<div>115184, г. Москва, Руновский пер., д. 10, стр. 1 (<a href="q">Схема проезда</a>)</div>
 					</div>
+				</div>
+				<div class="col">
+					<div class="copyright">© Ingenix Group 2017. Все права защищены.</div>
+				</div>
+				<div class="col">
+					<a href="http://infodesign.ru/" class="copyright">© Создание сайта и дизайн, «ИнфоДизайн» 2017</a>
 				</div>
 			</div>
 		</div>

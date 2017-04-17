@@ -32,19 +32,19 @@ body {
 
 .container {
 	margin: 0 auto;
-	padding: 0 15px;
-	width: 1140px;
+	padding: 0 $gutter;
+	width: 1170px;
 	@each $container, $width in $container-widths {
 		@include mq(#{$container}){
 			width: $width;
 		}
 	}
 	.row {
-		margin: 0 -15px;
+		display: flex;
+		margin: 0 -$gutter;
 	}
 	.col {
-		//1 col = 8.33333%
-		padding: 0 15px;
+		padding: 0 $gutter;
 	}
 }
 
@@ -132,33 +132,26 @@ abbr[title] {
 
 // Headers
 
-body h1, .h1 {
+h1, .h1 {
 	@include font(50, 54, 700);
 	color: $header;
 	margin: 18px 0;
-	text-align: center;
 	@include mq(sm){
 		@include font(36, 38, 700);
 	}
 }
-body h2, .h2 {
+h2, .h2 {
 	@include font(30, 32, 700);
 	color: $header;
 	margin: 15px 0;
 }
-body h3, .h3 {
+h3, .h3 {
 	@include font(20, 24, 700);
 	color: $header;
 	margin: 10px 0;
 }
-body h4, .h4, body h5, .h5 {
+h4, .h4, body h5, .h5 {
 	color: $header;
-}
-
-.inner {
-	h1, .h1, h2, .h2, h3, .h3 {
-		text-align: left;
-	}
 }
 
 

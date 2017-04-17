@@ -8,34 +8,43 @@ $breakpoint-widths: (
 
 /* Container */
 $container-widths: (
-	lg: 960px,
-	md: 720px,
-	sm: 540px,
+	lg: 900px,
+	md: 750px,
+	sm: 570px,
 	xs: auto
 )!default;
 
-/* Fonts */
-$open: 'Open Sans', sans-serif;
-$roboto-c: 'Roboto Condensed', sans-serif;
-$roboto: 'Roboto', sans-serif;
+$gutter: 15px;
 
-$default-font: $open;
+@font-face {
+	font-family: Ekibastuz;
+	src: url('../fonts/alsekibastuz_regular-webfont.woff');
+	font-weight: 400;
+}
+@font-face {
+	font-family: Ekibastuz;
+	src: url('../fonts/alsekibastuz_bold-webfont.woff');
+	font-weight: 700;
+}
+
+/* Fonts */
+$ez: 'Ekibastuz', sans-serif;
+$arial: 'Arial', sans-serif;
+
+$default-font: $arial;
 $base-font-size: 16;
 $base-line-height: 30;
-$default-color: #333;
-
-$header: #112854;
+$default-color: #545557;
 
 /* Colors */
-$red: #bd0112;
-$grey: #555;
-$menu: #2c66d3;
-$bkg-footer: #4f699b;
+$black: #231f20;
+
+$header: $black;
 
 /* Links */
-$link: $red;
-$link-hov: $red;
+$link: #0065b3;
+$link-hov: #00a950;
 
 /* Components */
-$c-humburger-color: $menu;
-$scroll-up-color: $menu;
+$c-humburger-color: $link-hov;
+$scroll-up-color: $link-hov;

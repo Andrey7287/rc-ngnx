@@ -1,13 +1,55 @@
 .site-nav{
 	display: flex;
+	height: 100%;
 	@include mq(md){
 		flex-direction: column;
 		display: none;
 	}
 	&__item {
 		flex-grow: 1;
+		height: 100%;
 		a {
 			display: inline-block;
+			@include font(15,18,700,$font: $ez);
+			text-transform: uppercase;
+			padding: 10px 25px;
+			text-decoration: none;
+			color: #fff;
+			background: #009a3e;
+			position: relative;
+			border-left: 1px solid #fff;
+			/*SVG corners style*/
+			.corner {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				left: 0;
+				width: 100%;
+				height: 56px;
+				fill: #fff;
+				&__inner {
+					fill: #009a3e;
+				}
+				&__outer {
+					fill: #fff;
+				}
+			}
+		}
+		&:first-child {
+			a {
+				border-left: 0;
+			}
+		}
+		&:nth-child(even){
+			background: #ececec;
+			a {
+				background: #00b84b;
+				.corner {
+					&__inner {
+						fill: #00b84b;
+					}
+				}
+			}
 		}
 	}
 }

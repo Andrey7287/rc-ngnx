@@ -1,1 +1,30 @@
+.header{
+	background: #f4f5f2;
+	height: 165px;
+	&__container {
+		display: flex;
+		position: relative;
+	}
+	&__inner {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: calc(165px + #{$gutter});
+		display: flex;
+	}
+}
 
+.site-logo {
+	position: relative;
+	display: block;
+	overflow: visible;
+	min-width: 165px;
+	height: 165px;
+	img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 30;
+	}
+}

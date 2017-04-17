@@ -146,7 +146,7 @@ module.exports = {
 				}
 
 			}, {
-				test: /\.(gif|png|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+				test: /\.(gif|png|jpg|jpeg|ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
 				use: [
 					{
 						loader: 'file-loader',
