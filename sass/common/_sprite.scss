@@ -119,6 +119,17 @@ $ico-in-total-width: 152px;
 $ico-in-total-height: 126px;
 $ico-in-image: '../images/sprite.png';
 $ico-in: (72px, 77px, -72px, -77px, 24px, 24px, 152px, 126px, '../images/sprite.png', 'ico-in', );
+$ico-menu-name: 'ico-menu';
+$ico-menu-x: 68px;
+$ico-menu-y: 67px;
+$ico-menu-offset-x: -68px;
+$ico-menu-offset-y: -67px;
+$ico-menu-width: 19px;
+$ico-menu-height: 10px;
+$ico-menu-total-width: 152px;
+$ico-menu-total-height: 126px;
+$ico-menu-image: '../images/sprite.png';
+$ico-menu: (68px, 67px, -68px, -67px, 19px, 10px, 152px, 126px, '../images/sprite.png', 'ico-menu', );
 $ico-search-name: 'ico-search';
 $ico-search-x: 41px;
 $ico-search-y: 104px;
@@ -144,7 +155,7 @@ $ico-tw: (48px, 77px, -48px, -77px, 24px, 24px, 152px, 126px, '../images/sprite.
 $spritesheet-width: 152px;
 $spritesheet-height: 126px;
 $spritesheet-image: '../images/sprite.png';
-$spritesheet-sprites: ($dot-act, $dot, $ico-checkbox-off, $ico-checkbox-on, $ico-corner-slider, $ico-corner-small, $ico-corner, $ico-fb, $ico-home, $ico-in, $ico-search, $ico-tw, );
+$spritesheet-sprites: ($dot-act, $dot, $ico-checkbox-off, $ico-checkbox-on, $ico-corner-slider, $ico-corner-small, $ico-corner, $ico-fb, $ico-home, $ico-in, $ico-menu, $ico-search, $ico-tw, );
 $spritesheet: (152px, 126px, '../images/sprite.png', $spritesheet-sprites, );
 
 // The provided mixins are intended to be used with the array-like variables
