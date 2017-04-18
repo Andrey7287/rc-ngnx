@@ -35,6 +35,9 @@
 }
 .info-block {
 	display: block;
+	h3, .h3 {
+		transition: color .2s ease-in;
+	}
 	&__inner {
 		overflow: hidden;
 	}
@@ -43,8 +46,7 @@
 		flex-direction: column;
 		justify-content: center;
 		position: relative;
-		min-height: 585px;
-		@include corner($ico-corner, -77px);
+		min-height: 508px;
 		img {
 			position: absolute;
 			z-index: 5;
@@ -55,6 +57,7 @@
 			left:0;
 			max-width: inherit;
 			margin: 0 auto;
+			transition: transform .4s ease-in;
 		}
 		span {
 			position: relative;
@@ -63,7 +66,7 @@
 			padding: 10px 15px;
 			display: block;
 			background: rgba(255,255,255,.8);
-			margin-top: -100px;
+			margin-top: -30px;
 		}
 		.news {
 			position: absolute;
@@ -71,5 +74,27 @@
 			bottom: -5px;
 			right: 0;
 		}
+	}
+	&:hover {
+		img {
+			transform: scale(1.03);
+		}
+	}
+}
+.info-footer {
+	display: flex;
+	.angle {
+		width: 68px;
+		height: 76px;
+		flex-shrink: 0;
+		&__first {
+			fill: #d1d2d4;
+		}
+		&__second {
+			fill: #f3f3f4;
+		}
+	}
+	.news {
+		padding: 8px 0 0 30px;
 	}
 }
