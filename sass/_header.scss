@@ -5,13 +5,6 @@
 		display: flex;
 		position: relative;
 	}
-	&__inner {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: calc(165px + #{$gutter});
-		display: flex;
-	}
 }
 
 .site-logo {
@@ -20,6 +13,7 @@
 	overflow: visible;
 	min-width: 165px;
 	height: 165px;
+	@include corner($ico-corner_small, 35px);
 	img {
 		position: absolute;
 		top: 0;
@@ -31,9 +25,141 @@
 .site-nav-outer {
 	flex: auto;
 }
-.site-lang-toggle{
+.lang-toggle{
 	width: 97px;
+	text-align: right;
+	position: relative;
+	padding-top: 15px;
+	div {line-height: 0;}
 	a{
-		display: block;
+		font-size: 0;
+		line-height: 0;
+		&::before {
+			content: " ";
+			display: inline-block;
+			@include sprite($ico-home);
+		}
+		&:hover::before {
+			@include sprite($ico-home_hover);
+		}
+	}
+	&__item {
+		border: 0;
+		background: transparent;
+		@include font(15,30,700,$font: $ez);
+		color: #818386;
+		padding: 3.5px;
+		&:hover,
+		&.act,
+		&:focus {
+			color: #a8aaad;
+		}
+		&:nth-child(even){
+			margin-right: -3.5px;
+		}
+	}
+	.corner {
+		width: 119px;
+		height: 35px;
+		position: absolute;
+		top: 0;
+		left: -1px;
+		&__outer {
+			fill: #fff;
+		}
+		&__inner {
+			fill: $menu-dark;
+		}
 	}
 }
+.header-inner {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: calc(165px + #{$gutter});
+	right: $gutter;
+	display: flex;
+	padding: 12px 0;
+	&__item {
+		padding-left: 30px;
+	}
+	.site-slogan {
+		flex-basis: 50%;
+		@include font(26,30,700,$font: $ez);
+	}
+	.site-search {
+		flex-basis: 30%;
+		&__query {
+			@include font(12,24);
+			color: $black;
+			span {
+				color: #009a3e;
+			}
+			a {
+				color: $black;
+				border-bottom: 1px dashed $black;
+				text-decoration: none;
+				&:hover {
+					border-bottom: 1px dashed transparent;
+					color: $default-color;
+				}
+			}
+		}
+		.search {
+			position: relative;
+			&__input {
+				width: 100%;
+				border: 1px solid #d1d2d4;
+				padding: 0 30px 0 10px;
+			}
+			&__submit{
+				position: absolute;
+				top: 8px;
+				right: 8px;
+				border: 0;
+				padding: 0;
+				background: transparent;
+				text-indent: -9999px;
+				@include sprite($ico-search);
+			}
+		}
+	}
+	.site-contacts {
+		flex-basis: 20%;
+		text-align: right;
+		&__phone {
+			@include font(17,20,700,$font: $ez);
+			color: $black;
+			text-decoration: none;
+			&:hover {
+				color: $default-color;
+			}
+		}
+		&__social {
+			.soc {
+				font-size: 0;
+				line-height: 0;
+				position: relative;
+				margin-left: 5px;
+				&::before {
+					content: "";
+					display: inline-block;
+					transition: all .3s ease-in;
+				}
+				&_fb::before{
+					@include sprite($ico-fb);
+				}
+				&_tw::before{
+					@include sprite($ico-tw);
+				}
+				&_in::before{
+					@include sprite($ico-in);
+				}
+				&:hover::before {
+					transform: translateY(-2px);
+				}
+			}
+		}
+	}
+}
+

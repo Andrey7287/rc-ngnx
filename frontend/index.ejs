@@ -38,13 +38,13 @@
 									<a href="<%=item[key] %>">
 										<%=key %>
 
-										<svg class='corner'   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+										<svg width="10" height="10" class='corner'   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 											 xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none" >
 											<% if( idx % 2 === 0 ) { %>
-											<polygon  class="corner__outer" points="0,0 0,100 100,8 100,0"/>
+											<polygon class="corner__outer" points="0,0 0,100 100,14 100,0"/>
 											<polygon class="corner__inner" points="0,0 0,60 100,0"/>
 											<% } else { %>
-											<polygon  class="corner__outer" points="0,0 0,8 100,100 100,0"/>
+											<polygon class="corner__outer" points="0,0 0,14 100,100 100,0"/>
 											<polygon class="corner__inner" points="0,0 100,0 100,60"/>
 											<% } %>
 										</svg>
@@ -67,19 +67,28 @@
 						});	%>
 				</ul>
 			</nav>
-			<div class="site-lang-toggle">
-				<a href="/">home</a>
-				<button class="rus">rus</button>
-				<button class="eng">eng</button>
+			<div class="lang-toggle">
+				<svg width="10" height="10" class='corner'   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+					 xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none" >
+					<polygon  class="corner__outer" points="0,0 0,100 100,0 "/>
+					<polygon class="corner__inner" points="0,0 0,80 100,0"/>
+				</svg>
+				<div>
+					<a href="/">home</a>
+				</div>
+				<div>
+					<button class="lang-toggle__item act">rus</button>
+					<button class="lang-toggle__item">eng</button>
+				</div>
 			</div>
 
-			<div class="header__inner">
-				<div class="site-slogan">
+			<div class="header-inner">
+				<div class="header-inner__item site-slogan">
 					Комплексный консалтинг<br />для нефтегазовой отрасли
 				</div>
-				<div class="site-search">
+				<div class="header-inner__item site-search">
 					<div class="site-search__query">
-						Поиск:  <span>по сайту</span>  <a href="f">по нефтегазовым ресурсам</a>
+						Поиск: <span> по сайту</span> <a href="f"> по нефтегазовым ресурсам</a>
 					</div>
 					<div class="search">
 						<form action="/search/" method="get">
@@ -88,7 +97,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="site-contacts">
+				<div class="header-inner__item site-contacts">
 					<a class="site-contacts__phone" href="tel:+74957830009">+7(495) 783 00 09</a>
 					<div class="site-contacts__social">
 						<a href="" class="soc soc_fb">facebook</a>
@@ -112,12 +121,14 @@
 					<% for (var i = 1; i < 3; i++){%>
 					<div class="slider__item">
 						<img class="slider__img" src="images/slider<%=i %>.jpg" alt="" />
-						<div class="slider__txt">
-							<div class="title">
-								ТЭО
-							</div>
-							<div class="txt">
-								нефтегазового проекта на любой стадии
+						<div class="slider__inner">
+							<div class="slider__txt">
+								<div class="title">
+									ТЭО
+								</div>
+								<div class="txt">
+									нефтегазового проекта на любой стадии
+								</div>
 							</div>
 						</div>
 					</div>
@@ -147,13 +158,13 @@
 							<h3>Новости</h3>
 							<%	newsItems.forEach((item, idx)=>{
 								for (key in item) { %>
-									<a href="we" class="news__item">
+									<div class="news__item">
 										<div class="news__header">
 											<div class="news__date">27.12.2016</div>
 											<div class="news__tag"><%=key %></div>
 										</div>
-										<div class="news__link"><%=item[key] %></div>
-									</a>
+										<a href="as" class="news__link"><%=item[key] %></a>
+									</div>
 								<%	}
 							});	%>
 							<div class="news__all">
@@ -162,30 +173,31 @@
 						</div>
 					</div>
 					<div class="col">
-						<a href="" class="handbook">
-							<h3><a href="a">Справочник аналитика</a></h3>
-							<div class="handbook__inner with-corner">
-								<img src="../images/handbook.jpg" alt="" />
-								<div class="handbook__txt">
-									Небольшой текст о справочнике аналитика, что полезного там есть, для чего он, какие показатели представлены
+						<a href="" class="block-link info-block">
+							<h3>Справочник аналитика</h3>
+							<div class="info-block__inner">
+								<div class="info-block__content">
+									<img src="./images/handbook.jpg" alt="" />
+									<span>
+										Небольшой текст о справочнике аналитика, что полезного там есть, для чего он, какие показатели представлены
+									</span>
 								</div>
 							</div>
 						</a>
 					</div>
 					<div class="col">
-						<a href="" class="grafic">
-							<h3><a href="w">Инфографика</a></h3>
-							<div class="grafic__inner with-corner">
-								<img class="grafic__img" src="../images/grafic.jpg" alt="" />
-								<div class="grafic__txt">
-									Небольшой текст о справочнике аналитика, что полезного там есть, для чего он, какие показатели представлены
+						<a href="" class="block-link info-block">
+							<h3>Инфографика</h3>
+							<div class="info-block__inner">
+								<div class="info-block__content">
+									<img src="./images/grafic.jpg" alt="" />
+									<div class="news">
+										<div class="news__header">
+											<div class="news__date">19.01.2017</div>
+										</div>
+										<a href="r" class="news__link">Нефтегазовый апстрим в&nbsp;2010-2015 гг.: Россия vs. мир</a>
+									</div>
 								</div>
-							</div>
-							<div class="news">
-								<div class="news__header">
-									<div class="news__date">19.01.2017</div>
-								</div>
-								<div class="news__link">Нефтегазовый апстрим в&nbsp;2010-2015 гг.: Россия vs. мир</div>
 							</div>
 						</a>
 					</div>
