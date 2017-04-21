@@ -1,10 +1,18 @@
 .main {
 	padding: 20px 0;
+}
+.main-grid {
+	flex-wrap: wrap;
 	.col {
 		flex-basis: 33.33333%;
+		@include mq(lg){
+			//flex-basis: 50%;
+			&:first-child {
+				flex-basis: 100%;
+			}
+		}
 	}
 }
-
 .news {
 	&__item {
 		display: block;
@@ -47,6 +55,7 @@
 		justify-content: center;
 		position: relative;
 		min-height: 508px;
+		background: #d1d2d4;
 		img {
 			position: absolute;
 			z-index: 5;

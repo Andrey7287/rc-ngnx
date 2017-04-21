@@ -1,7 +1,75 @@
 .footer {
-	background: #f3f3f4;
-	padding: 25px 0;
-	.infodisign {
-		text-align: right;
+	margin-top: 20px;
+	&__top {
+		padding: 50px;
+		min-height: 305px;
+		background: url(../images/footer-bkg_top.png) 50% 100% no-repeat,#f3f3f4;
+		.col {
+			flex-basis: 25%;
+		}
+	}
+	&__bottom {
+		padding: 25px 0 45px;
+		background: url(../images/footer-bkg_bottom.png) 50% 0% no-repeat;
+		@include mq(lg) {
+			padding: 35px 0 25px;
+		}
+		.col{
+			flex-basis: 25%;
+			padding-right: 65px;
+			@include mq(lg) {
+				padding-right: 0;
+			}
+			&:first-child {
+				flex-basis: 50%;
+				padding-right: 0;
+			}
+		}
+	}
+	a {
+		color: $black;
+		&:hover {
+			color: $default-color;
+		}
+	}
+	&__nav {
+		margin: 0;
+		padding: 1px 30px 0 0 ;
+		list-style: none;
+		@include mq(lg){
+			font-size: 0.9em;
+			padding: 0;
+		}
+		li {
+			margin: 6px 0;
+		}
+	}
+	&__contacts {
+		@include mq(lg) {
+			font-size: 0.9em;
+		}
+		a[href^=tel],
+		a[href^=mail] {
+			@include font(18,26);
+		}
+		a[href^=tel] {
+			text-decoration: none;
+		}
+	}
+	address {
+		font-style: normal;
+		font-size: 0.95em;
+	}
+}
+
+.copyright {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: flex-end;
+	a, span {
+		color: #a1a1a1;
+		@include font(14,20);
+		text-decoration: none;
 	}
 }

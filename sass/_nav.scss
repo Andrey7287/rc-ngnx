@@ -21,11 +21,14 @@
 		>a {
 			width: 100%;
 			@include font(15, 18, 700, $font: $ez);
-			padding: 8px 25px;
+			padding: 8px 17px;
 			background: $menu-dark;
 			position: relative;
 			z-index: 11;
 			border-left: 1px solid #fff;
+			@include mq(lg){
+				@include font(14, 18, 700, $font: $ez);
+			}
 			/*SVG corners style*/
 			.corner {
 				position: absolute;
@@ -87,7 +90,7 @@
 	position: absolute;
 	z-index: 10;
 	padding-top: 20px;
-	top: -110%;
+	top: -111%;
 	transition: all 0.4s ease-in;
 	a:hover + &,
 	&:hover {

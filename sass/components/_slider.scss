@@ -35,6 +35,9 @@
 		padding: 15px;
 		text-align: right;
 		@include corner($ico-corner_slider);
+		@include mq(lg){
+			font-size: 0.8em;
+		}
 		.title {
 			@include font(72,70,700,$font: $ez);
 		}

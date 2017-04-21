@@ -4,6 +4,7 @@
 	&__container {
 		display: flex;
 		position: relative;
+		flex-wrap: wrap;
 	}
 }
 
@@ -24,12 +25,29 @@
 }
 .site-nav-outer {
 	flex: auto;
+	@include mq(md) {
+		order: 4;
+		transform: translateY(-74px);
+		text-align: right;
+		z-index: 10;
+	}
 }
 .lang-toggle{
-	width: 97px;
+	flex-basis: 97px;
 	text-align: right;
 	position: relative;
 	padding-top: 15px;
+	@include mq(lg) {
+		position: absolute;
+		bottom: 3px;
+		left: calc(165px + #{$gutter});
+		width: 85px;
+	}
+	@include mq(md) {
+		position: static;
+		order: 3;
+		flex-basis: 85px;
+	}
 	div {line-height: 0;}
 	a{
 		font-size: 0;
@@ -64,6 +82,9 @@
 		position: absolute;
 		top: 0;
 		left: -1px;
+		@include mq(lg){
+			display: none;
+		}
 		&__outer {
 			fill: #fff;
 		}
@@ -79,16 +100,79 @@
 	left: calc(165px + #{$gutter});
 	right: $gutter;
 	display: flex;
+	align-items: flex-end;
 	padding: 12px 0;
+	@include mq(lg) {
+		left: calc(85px + 165px + #{$gutter});
+		padding: 12px 0 7px;
+	}
+	@include mq(md) {
+		position: static;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		flex-basis: calc(100% - 165px - 85px);
+	}
 	&__item {
 		padding-left: 30px;
+		@include mq(lg){
+			padding-left: 15px;
+		}
 	}
 	.site-slogan {
 		flex-basis: 50%;
 		@include font(26,30,700,$font: $ez);
+		@include mq(lg) {
+			@include font(21,24,700,$font: $ez);
+		}
+		@include mq(md) {
+			br {display: none;}
+			//@include font(18,20,700,$font: $ez);
+			flex-basis: calc(100%);
+			padding-right: 100px;
+		}
 	}
 	.site-search {
 		flex-basis: 30%;
+		@include mq(lg) {
+			padding: 0;
+			flex-basis: 28px;
+		}
+		@include mq(md) {
+			padding-left: 15px;
+			position: relative;
+			z-index: 11;
+		}
+		&__toggle {
+			display: none;
+			@include mq(lg) {
+				display: block;
+				border: 0;
+				padding: 0;
+				font-size: 0;
+				line-height: 0;
+				background: transparent;
+				&::after {
+					content: " ";
+					display: inline-block;
+					@include sprite($ico-search_big);
+				}
+			}
+		}
+		&__wrapp {
+			@include mq(lg) {
+				position: absolute;
+				top: -26px;
+				left: 292px;
+				right: 0;
+				z-index: -100;
+				opacity: 0;
+				transition: opacity 1s ease-out;
+				&_act {
+					opacity: 1;
+					z-index: 100;
+				}
+			}
+		}
 		&__query {
 			@include font(12,24);
 			color: $black;
@@ -127,6 +211,15 @@
 	.site-contacts {
 		flex-basis: 20%;
 		text-align: right;
+		line-height: 12px;
+		@include mq(lg) {
+			flex-basis: calc(50% - 28px);
+		}
+		@include mq(md) {
+			flex-basis: 295px;//calc(100% - 28px - #{$gutter});
+			position: relative;
+			z-index: 11;
+		}
 		&__phone {
 			@include font(17,20,700,$font: $ez);
 			color: $black;
@@ -134,8 +227,18 @@
 			&:hover {
 				color: $default-color;
 			}
+			@include mq(md) {
+				float: right;
+			}
 		}
 		&__social {
+			line-height: 12px;
+			@include mq(lg) {
+				display: inline-block;
+			}
+			@include mq(md) {
+				float: left;
+			}
 			.soc {
 				font-size: 0;
 				line-height: 0;

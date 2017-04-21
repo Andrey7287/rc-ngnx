@@ -58,3 +58,13 @@ $(document).scroll(function(){
 });
 
 $('.scrollup').scrollUp();
+
+/*****************************
+****** Search on mobile ******
+************************&*****/
+
+$('.site-search__toggle').click(()=>{
+	$('.site-search__wrapp').toggleClass('site-search__wrapp_act');
+});
+
+
