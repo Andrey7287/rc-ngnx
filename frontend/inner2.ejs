@@ -5,75 +5,221 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:400,500,700" rel="stylesheet">
 	<link rel="shortcut icon" href="./favicon.ico">
 </head>
 
 <body>
 
 	<header class="header">
-		<div class="container">
+		<div class="container header__container">
+			<a href="/" class="site-logo">
+				<!--<img src="./images/logo.png" alt="ingenix logo" />-->
+				<picture>
+					<source srcset="./images/logo-small.png" media="(max-width: 576px)">
+					<img src="./images/logo.png" alt="ingenix logo" />
+				</picture>
+			</a>
 			<nav class="site-nav-outer">
+				<button class="c-hamburger c-hamburger--htx">
+					<span>toggle menu</span>
+				</button>
 				<!-- Site menu data -->
 				<%
 					var menuItems = [
-						{'О&nbsp;компании': './#about'},
-						{'Услуги': './inner1.html'},
-						{'Сотрудничество': './inner2.html'},
-						{'Карьера': './inner3.html'},
-						{'Пресс-центр': './inner4.html' },
-						{'Контакты': './inner5.html' }
+						{'О&nbsp;компании': './inner1.html'},
+						{'Услуги и продукты': './inner1.html'},
+						{'Новости и пресса': './inner1.html'},
+						{'Медиатека': './inner1.html'},
+						{'Контакты': './inner2.html' }
 					]
 				%>
-				<!-- Site menu template -->
-				<ul class="site-nav">
-				<%	menuItems.forEach((item, idx)=>{
-							for (key in item) { %>
-								<li class="site-nav__item<% if(!idx){ %> site-nav__item_act<%}%>">
-									<a href="<%=item[key] %>">
+					<!-- Site menu template -->
+					<div class="site-nav-inner">
+						<ul class="site-nav">
+							<%	menuItems.forEach((item, idx)=>{
+								for (key in item) { %>
+								<li class="site-nav__item<% if(!idx){ %> act<%}%>">
+									<a class="site-nav__link" href="<%=item[key] %>">
 										<%=key %>
+
+											<svg width="10" height="10" class='corner' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none">
+												<% if( idx % 2 === 0 ) { %>
+												<polygon class="corner__outer" points="0,0 0,100 100,14 100,0"/>
+												<polygon class="corner__inner" points="0,0 0,60 100,0"/>
+												<% } else { %>
+												<polygon class="corner__outer" points="0,0 0,14 100,100 100,0"/>
+												<polygon class="corner__inner" points="0,0 100,0 100,60"/>
+												<% } %>
+											</svg>
 									</a>
+									<% if(idx === 1 || idx === 2){ %>
+										<ul class="dropdown">
+											<li class="dropdown__item">
+												<a href="">Технико-экономическая оценка</a>
+											</li>
+											<li class="dropdown__item">
+												<a href="">Геолого-технологические решения</a>
+											</li>
+											<li class="dropdown__item">
+												<a href="">Программное обеспечение для оценки затрат</a>
+											</li>
+										</ul>
+										<% } %>
 								</li>
-							<%	}
-						});	%>
-				</ul>
+								<%	}
+							});	%>
+						</ul>
+					</div>
 			</nav>
+			<div class="lang-toggle">
+				<svg width="10" height="10" class='corner' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none">
+					<polygon  class="corner__outer" points="0,0 0,100 100,0 "/>
+					<polygon class="corner__inner" points="0,0 0,80 100,0"/>
+				</svg>
+				<div>
+					<a href="/">home</a>
+				</div>
+				<div>
+					<button class="lang-toggle__item act">rus</button>
+					<button class="lang-toggle__item">eng</button>
+				</div>
+			</div>
+
+			<div class="header-inner">
+				<div class="header-inner__item site-slogan">
+					Комплексный консалтинг<br />для нефтегазовой отрасли
+				</div>
+				<div class="header-inner__item site-search">
+					<button class="site-search__toggle">search</button>
+					<div class="site-search__wrapp">
+						<div class="site-search__query">
+							Поиск: <span> по сайту</span> <a href="f"> по нефтегазовым ресурсам</a>
+						</div>
+						<div class="search">
+							<form action="/search/" method="get">
+								<input class="search__input" type="text" name="q" placeholder="" />
+								<input class="search__submit" type="submit" value="найти" />
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="header-inner__item site-contacts">
+					<a class="site-contacts__phone" href="tel:+74957830009">+7(495) 783 00 09</a>
+					<div class="site-contacts__social">
+						<a href="" class="soc soc_fb">facebook</a>
+						<a href="" class="soc soc_tw">twitter</a>
+						<a href="" class="soc soc_in">linkedin</a>
+					</div>
+				</div>
+			</div>
+
 		</div>
+
 	</header>
 	<!-- HEADER end-->
 
 	<div class="content">
-		<!--  breadcrumbs -->
-		<div class="container">
-			<div class="breadcrumbs">
-				<a class="breadcrumbs__item" href="#">Главная</a>
-				<a class="breadcrumbs__item" href="#">Каталог</a>
-				<span class="breadcrumbs__item">Товар каталога</span>
-			</div>
-		</div>
-		<div class="slider-wrapp">
-			<div class="slider">
-				<div class="slider__item">
-					<img src="images/slider1.jpg" alt="">
+
+		<div class="main inner">
+			<div class="container">
+
+				<!--  breadcrumbs -->
+				<div class="breadcrumbs">
+					<a class="breadcrumbs__item" href="#">Главная</a>|<span class="breadcrumbs__item">О&nbsp;компании</span>
 				</div>
-				<div class="slider__item">
-					<img src="images/slider2.jpg" alt="">
+
+				<h1>Контакты</h1>
+				<div class="contacts">
+					<div>115184, г. Москва, Руновский пер., д. 10, стр. 1 </div>
+					<a class="h4" href="tel:+74957830009">+7(495) 783 00 09</a>
+					<h4>Напишите нам</h4>
 				</div>
+				<form action="">
+					<div class="contacts-form">
+						<div class="contacts-form__item">
+							<label for="010101">Представьтесь, пожалуйста<sup>*</sup></label>
+							<input type="text" id="010101" />
+						</div>
+						<div class="contacts-form__item">
+							<label for="020202">Электронная почта<sup>*</sup></label>
+							<input type="text" id="020202" />
+						</div>
+						<div class="contacts-form__item">
+							<label for="030303">Сообщение</label>
+							<textarea name="" id="030303"></textarea>
+						</div>
+					</div>
+				</form>
+
+
 			</div>
-			<button class="slider-arrow left">previos</button>
-			<button class="slider-arrow right">next</button>
-			<div class="slider-dots"></div>
+
 		</div>
+
 	</div>
 
 	<footer class="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="copyright">© А.Аспект. Агентство стратегического развития бизнеса. 2017</div>
+		<div class="footer__top">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h4>О компании</h4>
+						<ul class="footer__nav">
+							<li><a href="">О компании</a></li>
+							<li><a href="">Команда</a></li>
+							<li><a href="">Опыт</a></li>
+							<li><a href="">Отзывы и сертификаты</a></li>
+							<li><a href="">Мероприятия</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<h4>Услуги и продукты</h4>
+						<ul class="footer__nav">
+							<li><a href="">Технико-экономическая оценка</a></li>
+							<li><a href="">Геолого-технологические решения</a></li>
+							<li><a href="">Программное обеспечение для оценки затрат</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<h4>Новости и пресса</h4>
+						<ul class="footer__nav">
+							<li><a href="">Последние новости</a></li>
+							<li><a href="">Пресс-релизы</a></li>
+							<li><a href="">Публикации</a></li>
+						</ul>
+					</div>
+					<div class="col">
+						<h4>Медиатека</h4>
+						<ul class="footer__nav">
+							<li><a href="">Брошюры</a></li>
+							<li><a href="">Презентации</a></li>
+							<li><a href="">Видео</a></li>
+							<li><a href="">Инфографика</a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="col">
-					<a href="http://infodesign.ru/" class="infodisign">© Создание сайта <span class="cut">и дизайн</span> «ИнфоДизайн» 2017</a>
+			</div>
+		</div>
+		<div class="footer__bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h4>Контакты</h4>
+						<div class="footer__contacts">
+							<a href="tel:+74957830009">+7(495) 783 00 09</a>, <a href="mailto:info@ingenix-group.ru">info@ingenix-group.ru</a>
+							<address>115184, г. Москва, Руновский пер., д. 10, стр. 1 (<a href="q">Схема проезда</a>)</address>
+						</div>
+					</div>
+					<div class="col">
+						<div class="copyright">
+							<span>© Ingenix Group 2017. Все&nbsp;права защищены.</span>
+						</div>
+					</div>
+					<div class="col">
+						<div class="copyright">
+							<a href="http://infodesign.ru/">© Создание сайта и дизайн, «ИнфоДизайн» 2017</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

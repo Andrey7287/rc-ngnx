@@ -1,0 +1,25 @@
+.contacts {
+	a[href^=tel] {
+		color: $default-color;
+		text-decoration: none;
+	}
+}
+.contacts-form {
+	font-size: 1.0625em;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 20px 0;
+	height: 145px;
+	&__item {
+		width: 50%;
+		margin-bottom: 7px;
+		input,
+		textarea {
+			width: 100%;
+		}
+		&:last-child {
+			width: calc(50% - #{$gutter}*2);
+		}
+	}
+}

@@ -22,6 +22,7 @@ $button-transistion-duration: 0.3s;     // The transition duration
 .c-hamburger {
 	display: none;
 	z-index: 100;
+	position: relative;
 	@include mq(md) {
 		display: inline-block;
 	}

@@ -1,12 +1,14 @@
 .main {
-	padding: 20px 0;
+	padding: 20px 0 40px;
 }
 .main-grid {
 	flex-wrap: wrap;
 	.col {
 		flex-basis: 33.33333%;
+		@include mq(sm){
+			flex-basis: 100%;
+		}
 		@include mq(lg){
-			//flex-basis: 50%;
 			&:first-child {
 				flex-basis: 100%;
 			}
@@ -92,7 +94,7 @@
 }
 .info-footer {
 	display: flex;
-	.angle {
+	@at-root .angle {
 		width: 68px;
 		height: 76px;
 		flex-shrink: 0;
@@ -101,6 +103,9 @@
 		}
 		&__second {
 			fill: #f3f3f4;
+		}
+		&_rotate {
+			transform: rotateX(180deg) rotateY(180deg);
 		}
 	}
 	.news {

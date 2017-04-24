@@ -5,7 +5,6 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:400,500,700" rel="stylesheet">
 	<link rel="shortcut icon" href="./favicon.ico">
 </head>
 
@@ -14,7 +13,11 @@
 	<header class="header">
 		<div class="container header__container">
 			<a href="/" class="site-logo">
-				<img src="./images/logo.png" alt="ingenix logo" />
+				<!--<img src="./images/logo.png" alt="ingenix logo" />-->
+				<picture>
+					<source srcset="./images/logo-small.png" media="(max-width: 576px)">
+					<img src="./images/logo.png" alt="ingenix logo" />
+				</picture>
 			</a>
 			<nav class="site-nav-outer">
 				<button class="c-hamburger c-hamburger--htx">
@@ -31,40 +34,42 @@
 					]
 				%>
 					<!-- Site menu template -->
-					<ul class="site-nav">
-						<%	menuItems.forEach((item, idx)=>{
-							for (key in item) { %>
-							<li class="site-nav__item<% if(!idx){ %> site-nav__item_act<%}%>">
-								<a href="<%=item[key] %>">
-									<%=key %>
+					<div class="site-nav-inner">
+						<ul class="site-nav">
+							<%	menuItems.forEach((item, idx)=>{
+								for (key in item) { %>
+								<li class="site-nav__item<% if(!idx){ %> act<%}%>">
+									<a class="site-nav__link" href="<%=item[key] %>">
+										<%=key %>
 
-										<svg width="10" height="10" class='corner' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none">
-											<% if( idx % 2 === 0 ) { %>
-											<polygon class="corner__outer" points="0,0 0,100 100,14 100,0"/>
-											<polygon class="corner__inner" points="0,0 0,60 100,0"/>
-											<% } else { %>
-											<polygon class="corner__outer" points="0,0 0,14 100,100 100,0"/>
-											<polygon class="corner__inner" points="0,0 100,0 100,60"/>
-											<% } %>
-										</svg>
-								</a>
-								<% if(idx === 1 || idx === 2){ %>
-									<ul class="dropdown">
-										<li class="dropdown__item">
-											<a href="">Технико-экономическая оценка</a>
-										</li>
-										<li class="dropdown__item">
-											<a href="">Геолого-технологические решения</a>
-										</li>
-										<li class="dropdown__item">
-											<a href="">Программное обеспечение для оценки затрат</a>
-										</li>
-									</ul>
-									<% } %>
-							</li>
-							<%	}
-						});	%>
-					</ul>
+											<svg width="10" height="10" class='corner' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none">
+												<% if( idx % 2 === 0 ) { %>
+												<polygon class="corner__outer" points="0,0 0,100 100,14 100,0"/>
+												<polygon class="corner__inner" points="0,0 0,60 100,0"/>
+												<% } else { %>
+												<polygon class="corner__outer" points="0,0 0,14 100,100 100,0"/>
+												<polygon class="corner__inner" points="0,0 100,0 100,60"/>
+												<% } %>
+											</svg>
+									</a>
+									<% if(idx === 1 || idx === 2){ %>
+										<ul class="dropdown">
+											<li class="dropdown__item">
+												<a href="">Технико-экономическая оценка</a>
+											</li>
+											<li class="dropdown__item">
+												<a href="">Геолого-технологические решения</a>
+											</li>
+											<li class="dropdown__item">
+												<a href="">Программное обеспечение для оценки затрат</a>
+											</li>
+										</ul>
+										<% } %>
+								</li>
+								<%	}
+							});	%>
+						</ul>
+					</div>
 			</nav>
 			<div class="lang-toggle">
 				<svg width="10" height="10" class='corner' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 100 100" preserveAspectRatio="none">

@@ -1,0 +1,49 @@
+.adv-wrapp {
+	margin: 20px 0;
+	.col {
+		flex-basis: 33.33333%;
+		display: inline-flex;
+		flex-direction: column;
+		@include mq(sm){
+			flex-basis: 100%;
+			margin-bottom: 30px;
+		}
+	}
+}
+.adv {
+	background: #f3f3f4;
+	height: 100%;
+	padding: 10px;
+	text-decoration: none;
+	position: relative;
+	@include mq(lg){
+		font-size: 0.9em;
+		padding: 20px 10px;
+	}
+	@include mq(md){
+		font-size: 0.85em;
+	}
+	&__num {
+		@include font(30,24,700,$font: $ez);
+		color: #a8aaad;
+	}
+	&__txt {
+		@include font(20,24,700,$font: $ez);
+	}
+	&::after {
+		content: " ";
+		position: absolute;
+		top: -52px;
+		right: $gutter;
+		.col:nth-child(1) & {
+			@include sprite($ico-adv_1);
+		}
+		.col:nth-child(2) & {
+			@include sprite($ico-adv_2);
+		}
+		.col:nth-child(3) & {
+			@include sprite($ico-adv_3);
+		}
+	}
+
+}

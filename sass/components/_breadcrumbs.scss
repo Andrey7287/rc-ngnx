@@ -1,26 +1,23 @@
 .breadcrumbs {
-	margin: 5px 0;
+	color: #abadb0;
+	margin-top: 13px;
+	margin-left: calc(165px + #{$gutter}*2 - 4px);
+	@include font(12, 30);
+	@include mq(sm){
+		margin-top: 0;
+		margin-left: -4px;
+	}
 	&__item {
-		color: #72819b;
-		@include font(15, 28);
-		text-decoration: none;
+		color: #abadb0;
+		text-decoration: underline;
+		border: 0;
+		margin: 0 4px;
 		&:hover {
-			color: #a0a09f;
-		}
-		&::after{
-			content: "";
-			display: inline-block;
-			width: 7px;
-			height: 7px;
-			background: #d1d7ce;
-			border-radius: 50%;
-			margin: 0 5px 0 8px;
+			text-decoration: none;
+			border: 0;
 		}
 		&:last-child {
-			color: #a0a09f;
-			&::after {
-				display: none;
-			}
+			text-decoration: none;
 		}
 	}
 }

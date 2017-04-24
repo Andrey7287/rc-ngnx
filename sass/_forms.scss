@@ -15,6 +15,8 @@ select,
 textarea {
 	margin: 0;
 	font: inherit;
+	padding: 0 10px;
+	border: 1px solid #d1d2d4;
 }
 textarea {
 	overflow: auto;
@@ -91,4 +93,41 @@ fieldset {
 			}
 		}
 	}*/
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	.button {
+		@include mq(sm){
+			flex-basis: 260px;
+		}
+	}
+}
+.button {
+	border: 0;
+	padding: 19px 30px;
+	color: #fff;
+	@include font(20,22,700,$font: $ez);
+	margin: $gutter;
+	background: $link-hov;
+	border-radius: 35px;
+	transition: background .3s ease-in;
+	@include mq(md){
+		@include font(18,20,700,$font: $ez);
+	}
+	@include mq(sm){
+		@include font(16,18,400,$font: $ez);
+		padding: 10px;
+	}
+	&:hover {
+		background: $link;
+	}
+	&_blue {
+		background: $link;
+		&:hover {
+			background: $link-hov;
+		}
+	}
 }

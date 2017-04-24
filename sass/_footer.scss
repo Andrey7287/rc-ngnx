@@ -1,18 +1,26 @@
 .footer {
-	margin-top: 20px;
 	&__top {
-		padding: 50px;
+		padding-top: 50px;
 		min-height: 305px;
 		background: url(../images/footer-bkg_top.png) 50% 100% no-repeat,#f3f3f4;
 		.col {
 			flex-basis: 25%;
+			@include mq(sm){
+				flex-basis: 50%;
+			}
+			@include mq(xs){
+				flex-basis: 100%;
+			}
 		}
 	}
 	&__bottom {
 		padding: 25px 0 45px;
 		background: url(../images/footer-bkg_bottom.png) 50% 0% no-repeat;
 		@include mq(lg) {
-			padding: 35px 0 25px;
+			padding: 40px 0 25px;
+		}
+		@include mq(md) {
+			padding: 50px 0 25px;
 		}
 		.col{
 			flex-basis: 25%;
@@ -20,9 +28,17 @@
 			@include mq(lg) {
 				padding-right: 0;
 			}
+			@include mq(xs) {
+				flex-basis: 100%;
+				margin-bottom: 20px;
+			}
 			&:first-child {
 				flex-basis: 50%;
 				padding-right: 0;
+				@include mq(md){
+					flex-basis: 100%;
+					margin-bottom: 20px;
+				}
 			}
 		}
 	}

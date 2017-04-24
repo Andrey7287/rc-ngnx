@@ -6,6 +6,9 @@
 		position: relative;
 		flex-wrap: wrap;
 	}
+	@include mq(sm) {
+
+	}
 }
 
 .site-logo {
@@ -15,12 +18,23 @@
 	min-width: 165px;
 	height: 165px;
 	@include corner($ico-corner_small, 35px);
+	z-index: 10;
+	@include mq(sm){
+		min-width: 120px;
+		&::after { display: none }
+	}
+	@include mq(xs){
+		min-width: 70px;
+	}
 	img {
 		position: absolute;
 		top: 0;
 		right: 0;
 		left: 0;
 		z-index: 30;
+		@include mq(sm) {
+			top: 13px;
+		}
 	}
 }
 .site-nav-outer {
@@ -30,6 +44,17 @@
 		transform: translateY(-74px);
 		text-align: right;
 		z-index: 10;
+		transition: transform .4s linear;
+		&.with-search {
+			transform: translateY(-96px);
+		}
+	}
+	@include mq(xs) {
+		order: 4;
+		transform: translateY(-37px);
+		&.with-search {
+			//transform: translateY(-96px);
+		}
 	}
 }
 .lang-toggle{
@@ -48,7 +73,16 @@
 		order: 3;
 		flex-basis: 85px;
 	}
-	div {line-height: 0;}
+	@include mq(sm) {
+		flex-basis: 30px;
+		div:first-of-type {display: none}
+	}
+	div {
+		line-height: 0;
+		@include mq(sm) {
+			margin-top: -8px;
+		}
+	}
 	a{
 		font-size: 0;
 		line-height: 0;
@@ -67,6 +101,9 @@
 		@include font(15,30,700,$font: $ez);
 		color: #818386;
 		padding: 3.5px;
+		@include mq(sm) {
+			padding: 0;
+		}
 		&:hover,
 		&.act,
 		&:focus {
@@ -74,6 +111,9 @@
 		}
 		&:nth-child(even){
 			margin-right: -3.5px;
+			@include mq(sm) {
+				margin-right: 0;
+			}
 		}
 	}
 	.corner {
@@ -107,15 +147,30 @@
 		padding: 12px 0 7px;
 	}
 	@include mq(md) {
-		position: static;
+		position: relative;
 		align-items: flex-start;
 		flex-wrap: wrap;
 		flex-basis: calc(100% - 165px - 85px);
+		left: auto;
+		right: auto;
+		bottom: auto;
+		top: auto;
+		z-index: 11;
+		transition: padding .4s linear;
+		&.with-search {
+			padding-bottom: 50px;
+		}
+	}
+	@include mq(sm) {
+		flex-basis: calc(100% - 120px - 30px);
+	}
+	@include mq(xs) {
+		flex-basis: calc(100% - 70px - 30px);
 	}
 	&__item {
 		padding-left: 30px;
 		@include mq(lg){
-			padding-left: 15px;
+			padding-left: $gutter;
 		}
 	}
 	.site-slogan {
@@ -126,9 +181,15 @@
 		}
 		@include mq(md) {
 			br {display: none;}
-			//@include font(18,20,700,$font: $ez);
-			flex-basis: calc(100%);
+			flex-basis: 100%;
 			padding-right: 100px;
+		}
+		@include mq(sm) {
+			@include font(18,20,700,$font: $ez);
+			padding-right: 0;
+		}
+		@include mq(xs) {
+			@include font(16,18,700,$font: $ez);
 		}
 	}
 	.site-search {
@@ -139,8 +200,6 @@
 		}
 		@include mq(md) {
 			padding-left: 15px;
-			position: relative;
-			z-index: 11;
 		}
 		&__toggle {
 			display: none;
@@ -166,10 +225,30 @@
 				right: 0;
 				z-index: -100;
 				opacity: 0;
-				transition: opacity 1s ease-out;
+				transition: all .4s ease-out;
 				&_act {
 					opacity: 1;
-					z-index: 100;
+					z-index: 49;
+				}
+			}
+			@include mq(md) {
+				top: auto;
+				right: 0;
+				bottom: 5px;
+				left: $gutter;
+			}
+			@include mq(sm) {
+				right: -30px;
+				bottom: -25px;
+				&_act {
+					bottom: 5px;
+				}
+			}
+			@include mq(xs) {
+				left: calc(-70px);
+				bottom: -55px;
+				&_act {
+					bottom: 5px;
 				}
 			}
 		}
@@ -216,9 +295,11 @@
 			flex-basis: calc(50% - 28px);
 		}
 		@include mq(md) {
-			flex-basis: 295px;//calc(100% - 28px - #{$gutter});
-			position: relative;
-			z-index: 11;
+			flex-basis: 295px;
+		}
+		@include mq(xs) {
+			flex-basis: 145px;
+			text-align: left;
 		}
 		&__phone {
 			@include font(17,20,700,$font: $ez);
@@ -230,6 +311,10 @@
 			@include mq(md) {
 				float: right;
 			}
+			@include mq(xs) {
+				@include font(12,14,400,$font: $ez);
+				float: none;
+			}
 		}
 		&__social {
 			line-height: 12px;
@@ -239,11 +324,22 @@
 			@include mq(md) {
 				float: left;
 			}
+			@include mq(xs) {
+				float: none;
+				transform: translateY(27px);
+				transition: transform .4s linear;
+				&.with-search {
+					transform: translateY(0);
+				}
+			}
 			.soc {
 				font-size: 0;
 				line-height: 0;
 				position: relative;
 				margin-left: 5px;
+				@include mq(xs) {
+					margin-left: 0;
+				}
 				&::before {
 					content: "";
 					display: inline-block;
