@@ -41,3 +41,6 @@ $ npm start
 ```
 $ npm run build
 ```
+
+## Test
+ingenix.j.infodesign.ru
